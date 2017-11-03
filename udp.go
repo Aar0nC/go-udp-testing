@@ -23,6 +23,11 @@ func SetAddr(a string) {
 	addr = &a
 }
 
+// SetTimeout sets the UDP read deadline
+func SetTimeout(t int) {
+	Timeout = time.Duration(t) * time.Millisecond
+}
+
 func start(t *testing.T) {
 	resAddr, err := net.ResolveUDPAddr("udp", *addr)
 	if err != nil {
